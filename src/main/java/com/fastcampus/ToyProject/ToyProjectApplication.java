@@ -1,4 +1,4 @@
-package com.fastcampus.ToyProject.web.dto;
+package com.fastcampus.ToyProject;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
