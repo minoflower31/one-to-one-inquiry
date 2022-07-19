@@ -1,7 +1,7 @@
 package com.fastcampus.ToyProject.service;
 
 import com.fastcampus.ToyProject.domain.User;
-import com.fastcampus.ToyProject.persistence.UserRepository;
+import com.fastcampus.ToyProject.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

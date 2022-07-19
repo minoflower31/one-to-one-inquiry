@@ -1,4 +1,4 @@
-package com.fastcampus.ToyProject.persistence;
+package com.fastcampus.ToyProject.repository;
 
 import com.fastcampus.ToyProject.domain.Post;
 import org.springframework.data.jpa.repository.JpaRepository;

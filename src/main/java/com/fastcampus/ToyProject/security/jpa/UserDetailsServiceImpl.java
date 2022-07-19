@@ -1,6 +1,6 @@
 package com.fastcampus.ToyProject.security.jpa;
 
-import com.fastcampus.ToyProject.persistence.UserRepository;
+import com.fastcampus.ToyProject.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

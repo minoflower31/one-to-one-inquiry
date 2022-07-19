@@ -1,7 +1,7 @@
 package com.fastcampus.ToyProject.service;
 
 import com.fastcampus.ToyProject.domain.Post;
-import com.fastcampus.ToyProject.persistence.PostRepository;
+import com.fastcampus.ToyProject.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

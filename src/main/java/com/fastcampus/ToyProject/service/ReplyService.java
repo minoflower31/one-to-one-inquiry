@@ -1,7 +1,7 @@
 package com.fastcampus.ToyProject.service;
 
 import com.fastcampus.ToyProject.domain.Reply;
-import com.fastcampus.ToyProject.persistence.ReplyRepository;
+import com.fastcampus.ToyProject.repository.ReplyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

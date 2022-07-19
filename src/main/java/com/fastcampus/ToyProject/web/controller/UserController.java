@@ -1,4 +1,4 @@
-package com.fastcampus.ToyProject.controller;
+package com.fastcampus.ToyProject.web.controller;
 
 import com.fastcampus.ToyProject.domain.User;
 import com.fastcampus.ToyProject.service.UserService;
