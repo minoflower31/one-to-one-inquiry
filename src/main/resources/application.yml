@@ -1,16 +1,4 @@
-server:
-  port: 8080
-  servlet:
-    context-path: /
-    encoding:
-      charset: UTF-8
-
 spring:
-  mvc:
-    view:
-      prefix: /WEB-INF/bank/
-      suffix: .jsp
-
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:tcp://localhost/~/test
