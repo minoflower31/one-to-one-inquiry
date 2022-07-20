@@ -22,8 +22,8 @@ public class PostService {
     }
 
     @Transactional
-    public void updatePost(Post post) {
-        Post updatedPost = postRepository.findById(post.getId()).orElseThrow();
+    public void updatePost(int id, Post post) {
+        Post updatedPost = postRepository.findById(id).orElseThrow();
         updatedPost.setTitle(post.getTitle());
         updatedPost.setContent(post.getContent());
     }
