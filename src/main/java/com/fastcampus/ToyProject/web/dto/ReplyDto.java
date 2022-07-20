@@ -1,4 +1,4 @@
-package com.fastcampus.ToyProject.web.controller;
+package com.fastcampus.ToyProject.web.dto;
 
 import lombok.Data;
 
