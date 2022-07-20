@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
+
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark" th:fragment="body-header">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Main</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto" sec:authorize="${authenticated == false}">
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/login">로그인</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/sign-up">회원가입</a>
+                </li>
+            </ul>
+                <ul class="navbar-nav me-auto" sec:authorize="${authenticated == true}">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user/updateUser">회원 상세</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/post/insert-post">1:1 문의</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/auth/logout">로그아웃</a>
+                    </li>
+                </ul>
+        </div>
+    </div>
+</nav>
