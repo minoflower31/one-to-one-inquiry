@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="layout/header :: header"></head>
+<body>
+<nav th:replace="layout/body-header :: body-header"></nav>
+
+<div class="container-fluid mt-3">
+    <form th:object="${user}">
+        <div class="mb-3">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter username" th:field="*{username}">
+        </div>
+        <div class="mb-3">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter password" th:field="*{password}">
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" th:field="*{email}">
+        </div>
+    </form>
+    <button id="btn-insert" class="btn btn-secondary">회원가입</button>
+
+</div>
+<br>
+<div th:replace="layout/footer :: footer"></div>
+<script type="text/javascript" src="/js/user.js"></script>
+</body>
+</html>
+

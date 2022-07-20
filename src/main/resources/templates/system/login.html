@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="layout/header :: header"></head>
+<body>
+<nav th:replace="layout/body-header :: body-header"></nav>
+
+<div class="container mt-3">
+    <form action="/auth/login" th:action th:object="${user}" method="post">
+        <div class="mb-3">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" id="username" th:field="*{username}"
+                   placeholder="Enter username">
+        </div>
+        <div class="mb-3">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" th:field="*{password}"
+                   placeholder="Enter password">
+        </div>
+
+        <button id="btn-login" class="btn btn-secondary">로그인</button>
+    </form>
+</div>
+
+<div th:replace="layout/footer :: footer"></div>
+</body>
+</html>
+
