@@ -13,6 +13,7 @@ public class Reply {
     @Column(name = "REPLY_ID")
     private int id;
 
+    @Column(nullable = false)
     private String comment;
     private String writer;
 

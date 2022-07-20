@@ -17,7 +17,7 @@ public class UserService {
 
     @Transactional
     public void insertUser(User user) {
-        user.setRole("USER");
+        user.addRole("USER");
         userRepository.save(user);
     }
 

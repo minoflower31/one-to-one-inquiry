@@ -53,7 +53,7 @@ public class PostController {
     @PostMapping("/post/insert-post")
     @ResponseBody
     public String insertPost(@RequestBody Post post, @AuthenticationPrincipal UserDetailsImpl user) {
-        post.setUser(user.getUser());
+        post.addUser(user.getUser());
         postService.insertPost(post);
 
         return "새로운 1:1 문의가 등록됐습니다.";

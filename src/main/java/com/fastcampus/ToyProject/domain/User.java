@@ -1,6 +1,7 @@
 package com.fastcampus.ToyProject.domain;
 
 import lombok.Data;
+import lombok.Getter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -10,16 +11,19 @@ import java.util.List;
 
 @Entity
 @Table(name = "USERS")
-public @Data class User {
+@Getter
+public class User {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "USER_ID")
-    private int id; // 회원 일련번호
+    private int id;
 
     @Column(nullable = false, length = 50, unique = true)
-    private String username; // 아이디
-    private String password; // 비밀번호
-    private String email; // 이메일
+    private String username;
+
+    @Column(nullable = false, length = 50)
+    private String password;
+    private String email;
 
     private String role;
 
@@ -28,4 +32,9 @@ public @Data class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Post> posts = new ArrayList<>();
+
+    //비즈니스 메서드
+    public void addRole(String role) {
+        this.role = role;
+    }
 }
