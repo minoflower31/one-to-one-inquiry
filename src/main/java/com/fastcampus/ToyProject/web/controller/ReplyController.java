@@ -4,6 +4,7 @@ import com.fastcampus.ToyProject.domain.Reply;
 import com.fastcampus.ToyProject.security.jpa.UserDetailsImpl;
 import com.fastcampus.ToyProject.service.PostService;
 import com.fastcampus.ToyProject.service.ReplyService;
+import com.fastcampus.ToyProject.web.dto.ReplyDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
@@ -30,9 +31,9 @@ public class ReplyController {
         return "덧글 등록이 완료됐습니다.";
     }
 
-    @DeleteMapping
-    public String deleteReply(@RequestBody ReplyDto replyDto) {
-        replyService.deleteReply(replyDto.getReplyId());
+    @DeleteMapping("/{id}")
+    public String deleteReply(@PathVariable int id) {
+        replyService.deleteReply(id);
         return "덧글 삭제가 완료됐습니다";
     }
 }

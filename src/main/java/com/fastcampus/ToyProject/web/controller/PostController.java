@@ -22,20 +22,6 @@ public class PostController {
     private final PostService postService;
     private final ReplyService replyService;
 
-    @GetMapping("/post/insertPost")
-    public String insertPostView() {
-        return "post/insertPost";
-    }
-
-    @PostMapping("/post/insertPost")
-    @ResponseBody
-    public String insertPost(@RequestBody Post post, @AuthenticationPrincipal UserDetailsImpl user) {
-        post.setUser(user.getUser());
-        postService.insertPost(post);
-
-        return "새로운 1:1 문의가 등록됐습니다.";
-    }
-
     @GetMapping("/")
     public String getPostList(Model model,
                               @PageableDefault(size = 3, sort = "id", direction = DESC) Pageable pageable) {
@@ -55,26 +41,41 @@ public class PostController {
         model.addAttribute("post",post);
         model.addAttribute("user", user.getUser());
         model.addAttribute("replyList", replyService.getReplyList(id));
-        return "post/getPost";
+        return "post/get-post";
     }
 
-    @GetMapping("/post/{id}/updatePost")
+    @GetMapping("/post/insert-post")
+    public String insertPostView(Model model) {
+        model.addAttribute("post", new Post());
+        return "post/insert-post";
+    }
+
+    @PostMapping("/post/insert-post")
+    @ResponseBody
+    public String insertPost(@RequestBody Post post, @AuthenticationPrincipal UserDetailsImpl user) {
+        post.setUser(user.getUser());
+        postService.insertPost(post);
+
+        return "새로운 1:1 문의가 등록됐습니다.";
+    }
+
+    @GetMapping("/post/{id}/update-post")
     public String updatePostView(@PathVariable int id, Model model) {
         model.addAttribute("post", postService.getPost(id));
-        return "post/updatePost";
+        return "post/update-post";
     }
 
-    @PutMapping("/post")
+    @PutMapping("/post/{id}")
     @ResponseBody
-    public String updatePost(@RequestBody Post post) {
-        postService.updatePost(post);
+    public String updatePost(@PathVariable int id, @RequestBody Post post) {
+        postService.updatePost(id, post);
         return "1:1 문의가 수정됐습니다.";
     }
 
-    @DeleteMapping("/post")
+    @DeleteMapping("/post/{id}")
     @ResponseBody
-    public String deletePost(@RequestBody Post post) {
-        postService.deletePost(post.getId());
+    public String deletePost(@PathVariable int id) {
+        postService.deletePost(id);
         return "1:1 문의가 삭제됐습니다.";
     }
 }
