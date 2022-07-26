@@ -26,5 +26,7 @@ public class Reply {
         this.comment = comment;
         this.writer = writer;
         this.post = post;
+
+        post.getReplyList().add(this);
     }
 }

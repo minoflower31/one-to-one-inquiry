@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.NoSuchElementException;
+
 import static org.springframework.data.domain.Sort.Direction.DESC;
 
 @Controller
@@ -20,7 +22,11 @@ import static org.springframework.data.domain.Sort.Direction.DESC;
 public class PostController {
 
     private final PostService postService;
-    private final ReplyService replyService;
+
+    @ExceptionHandler(value = NoSuchElementException.class)
+    public String noSuchPostHandle() {
+        return "error/no-such-post";
+    }
 
     @GetMapping("/")
     public String getPostList(Model model,
@@ -40,7 +46,7 @@ public class PostController {
 
         model.addAttribute("post",post);
         model.addAttribute("user", user.getUser());
-        model.addAttribute("replyList", replyService.getReplyList(id));
+        model.addAttribute("replyList", post.getReplyList());
         return "post/get-post";
     }
 

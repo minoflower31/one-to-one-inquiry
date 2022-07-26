@@ -33,7 +33,7 @@ public class PostService {
     }
 
     public Post getPost(int id) {
-        return postRepository.findById(id).orElse(new Post());
+        return postRepository.findById(id).orElseThrow();
     }
 
     public Page<Post> getPostList(Pageable pageable) {
